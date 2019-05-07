@@ -22,23 +22,17 @@ const getListByFilter = createSelector(
 )
 
 const getIds = createSelector(
-    [
-        getListByFilter
-    ],
+    getListByFilter,
     (listByFilter) => fromCreateList.getIds(listByFilter)
 )
 
 export const getErrorMessage = createSelector(
-    [
-        getListByFilter
-    ],
+    getListByFilter,
     (listByFilter) => fromCreateList.getErrorMessage(listByFilter)
 )
 
 export const getIsFetching = createSelector(
-    [
-        getListByFilter
-    ],
+    getListByFilter,
     (listByFilter) => fromCreateList.getIsFetching(listByFilter)
 )
 
