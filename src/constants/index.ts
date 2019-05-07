@@ -1,0 +1,7 @@
+export const ADD_TODO_REQUEST = '@@todos/ADD_REQUEST'
+export const ADD_TODO_SUCCESS = '@@todos/ADD_TODO_SUCCESS'
+export const TOGGLE_TODO_REQUEST = '@@todos/TOGGLE_TODO_REQUEST'
+export const TOGGLE_TODO_SUCCESS = '@@todos/TOGGLE_TODO_SUCCESS'
+export const FETCH_TODOS_REQUEST = '@@todos/FETCH_TODOS_REQUEST'
+export const FETCH_TODOS_SUCCESS = '@@todos/FETCH_TODOS_SUCCESS'
+export const FETCH_TODOS_FAIL = '@@todos/FETCH_TODOS_FAIL'

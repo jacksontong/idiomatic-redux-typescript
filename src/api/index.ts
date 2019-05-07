@@ -1,6 +1,6 @@
 import { v4 } from "node-uuid"
-import { Database, Todo } from "../types/api";
-import { Filter } from "../types/todos";
+import { Database, Todo } from "../types/api"
+import { Filter } from "../types/todos"
 
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
 
