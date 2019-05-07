@@ -1,5 +1,5 @@
 import { TodosAction, TodoResponse, Filter, TodosResponse } from "../types/todos";
-import { ADD_TODO_REQUEST, ADD_TODO_SUCCESS, TOGGLE_TODO_REQUEST, FETCH_TODOS_REQUEST, FETCH_TODOS_SUCCESS, FETCH_TODOS_FAIL } from "../constants";
+import { ADD_TODO_REQUEST, ADD_TODO_SUCCESS, TOGGLE_TODO_REQUEST, FETCH_TODOS_REQUEST, FETCH_TODOS_SUCCESS, FETCH_TODOS_FAIL, TOGGLE_TODO_SUCCESS } from "../constants";
 
 export const addTodoRequest = (text: string): TodosAction => ({
     type: ADD_TODO_REQUEST,
@@ -14,6 +14,11 @@ export const addTodoSuccess = (response: TodoResponse): TodosAction => ({
 export const toggleTodoRequest = (id: string): TodosAction => ({
     type: TOGGLE_TODO_REQUEST,
     id
+})
+
+export const toggleTodoSuccess = (response: TodoResponse): TodosAction => ({
+    type: TOGGLE_TODO_SUCCESS,
+    response
 })
 
 export const fetchTodosRequest = (filter: Filter): TodosAction => ({
