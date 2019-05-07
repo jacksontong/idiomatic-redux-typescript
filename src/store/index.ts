@@ -1,7 +1,8 @@
 import { combineReducers } from "redux";
-import { TodosState, TodosAction, Filter } from "../types/todos";
+import { TodosState, TodosAction, Filter, Todo, Todos, ListByFilter } from "../types/todos";
 import byId, * as fromById from "./byId";
 import createList, * as fromCreateList from "./createList";
+import { createSelector } from "reselect";
 
 export default combineReducers<TodosState, TodosAction>({
     byId,
@@ -12,11 +13,24 @@ export default combineReducers<TodosState, TodosAction>({
     })
 })
 
-export const getErrorMessage = ({ listByFilters }: TodosState, filter: Filter) => fromCreateList.getErrorMessage(listByFilters[filter])
+export const getErrorMessage = createSelector(
+    [
+        ({ listByFilters }: TodosState, filter: Filter) => listByFilters[filter]
+    ],
+    (listByFilter: ListByFilter) => fromCreateList.getErrorMessage(listByFilter)
+)
 
-export const getIsFetching = ({ listByFilters }: TodosState, filter: Filter) => fromCreateList.getIsFetching(listByFilters[filter])
+export const getIsFetching = createSelector(
+    [
+        ({ listByFilters }: TodosState, filter: Filter) => listByFilters[filter]
+    ],
+    (listByFilter: ListByFilter) => fromCreateList.getIsFetching(listByFilter)
+)
 
-export const getVisibleTodosList = ({ byId, listByFilters }: TodosState, filter: Filter) => {
-    const ids = fromCreateList.getIds(listByFilters[filter])
-    return ids.map(id => fromById.getTodo(byId, id))
-}
+export const getVisibleTodosList = createSelector(
+    [
+        ({ byId }: TodosState) => byId,
+        ({ listByFilters }: TodosState, filter: Filter) => fromCreateList.getIds(listByFilters[filter])
+    ],
+    (byId: Todos, ids: string[]) => ids.map(id => fromById.getTodo(byId, id))
+)
