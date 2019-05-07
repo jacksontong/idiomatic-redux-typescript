@@ -1,4 +1,4 @@
-import { Filter, TodosAction, ListByFilter, ToggleTodoSuccessAction, ListByFilters } from "../types/todos"
+import { Filter, TodosAction, ListByFilter, ToggleTodoSuccessAction } from "../types/todos"
 import { FETCH_TODOS_REQUEST, FETCH_TODOS_FAIL, FETCH_TODOS_SUCCESS, ADD_TODO_SUCCESS, TOGGLE_TODO_SUCCESS } from "../constants"
 import { combineReducers } from 'redux'
 
@@ -8,8 +8,8 @@ const createList = (filter: Filter) => {
         const id = action.response.result
         const { completed } = action.response.entities.todos[id]
         const shouldRemove = (
-            completed && filter === "active" ||
-            !completed && filter === "completed"
+            (completed && filter === "active") ||
+            (!completed && filter === "completed")
         )
         return shouldRemove ? state.filter(i => i !== id) : state
     }
