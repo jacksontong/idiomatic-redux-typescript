@@ -3,13 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/jest": "24.0.12",
-    "@types/node": "12.0.0",
-    "@types/node-uuid": "^0.0.28",
-    "@types/react": "16.8.16",
-    "@types/react-dom": "16.8.4",
-    "@types/react-redux": "^7.0.8",
-    "@types/react-router-dom": "^4.3.3",
     "node-uuid": "^1.4.8",
     "normalizr": "^3.3.0",
     "react": "^16.8.6",
@@ -18,7 +11,6 @@
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0",
     "redux": "^4.0.1",
-    "redux-logger": "^3.0.6",
     "redux-saga": "^1.0.2",
     "typescript": "3.4.5"
   },
@@ -44,6 +36,20 @@
     ]
   },
   "devDependencies": {
-    "@types/redux-logger": "^3.0.7"
+    "@types/jest": "24.0.12",
+    "@types/node": "12.0.0",
+    "@types/node-uuid": "^0.0.28",
+    "@types/react": "16.8.16",
+    "@types/react-dom": "16.8.4",
+    "@types/react-redux": "^7.0.8",
+    "@types/react-router-dom": "^4.3.3",
+    "@types/enzyme": "^3.9.1",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/redux-logger": "^3.0.7",
+    "@types/redux-mock-store": "^1.0.1",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
+    "redux-logger": "^3.0.6",
+    "redux-mock-store": "^1.5.3"
   }
 }
