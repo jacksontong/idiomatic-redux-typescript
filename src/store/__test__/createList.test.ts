@@ -1,6 +1,7 @@
 import createList from "../createList";
 import { fetchTodosFail, fetchTodosRequest, fetchTodosSuccess, addTodoSuccess, toggleTodoSuccess } from "../../actions";
 import { TodosResponse, TodoResponse } from "../../types/todos";
+import { getIsFetching, getIds, getErrorMessage } from "../createList";
 
 describe("createList reducer", () => {
     it("should handle initial state", () => {
@@ -221,6 +222,48 @@ describe("createList reducer", () => {
             errorMessage: "",
             isFetching: false
         })
+    })
+
+    it("getIsFetching selector", () => {
+        expect(getIsFetching({
+            ids: [],
+            errorMessage: "",
+            isFetching: true
+        })).toBeTruthy()
+
+        expect(getIsFetching({
+            ids: [],
+            errorMessage: "",
+            isFetching: false
+        })).toBeFalsy()
+    })
+
+    it("getIds selector", () => {
+        expect(getIds({
+            ids: ['1', '2'],
+            errorMessage: '',
+            isFetching: false
+        })).toEqual(['1', '2'])
+
+        expect(getIds({
+            ids: [],
+            errorMessage: '',
+            isFetching: false
+        })).toEqual([])
+    })
+
+    it("getErrorMessage selector", () => {
+        expect(getErrorMessage({
+            ids: [],
+            errorMessage: '',
+            isFetching: false
+        })).toEqual('')
+
+        expect(getErrorMessage({
+            ids: [],
+            errorMessage: 'error',
+            isFetching: false
+        })).toEqual('error')
     })
 })
 

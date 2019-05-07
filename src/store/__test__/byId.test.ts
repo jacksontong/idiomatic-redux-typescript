@@ -1,4 +1,4 @@
-import byId from "../byId";
+import byId, { getTodo } from "../byId";
 import { addTodoSuccess, fetchTodosSuccess, toggleTodoSuccess } from "../../actions";
 import { TodoResponse, TodosResponse } from "../../types/todos";
 
@@ -137,6 +137,28 @@ describe("byId reducer", () => {
                 completed: false
             }
         })
+    })
+
+    it("getTodo selector", () => {
+        expect(getTodo({
+            1: {
+                id: '1',
+                text: '1',
+                completed: false
+            }
+        }, '1')).toEqual({
+            id: '1',
+            text: '1',
+            completed: false
+        })
+
+        expect(getTodo({
+            1: {
+                id: '1',
+                text: '1',
+                completed: false
+            }
+        }, '2')).toBeUndefined()
     })
 })
 
