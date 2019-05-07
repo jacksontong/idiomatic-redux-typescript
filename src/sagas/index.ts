@@ -6,7 +6,7 @@ import { normalize } from 'normalizr';
 import * as schemas from '../schemas'
 import { addTodoSuccess, fetchTodosSuccess, toggleTodoSuccess, fetchTodosFail } from '../actions';
 
-function* handleAddTodo({ text }: AddTodoRequestAction) {
+export function* handleAddTodo({ text }: AddTodoRequestAction) {
     const response = yield call(fromApi.addTodo, text)
     const normalizedData = normalize(response, schemas.todo)
     yield put(addTodoSuccess(normalizedData))
@@ -16,7 +16,7 @@ function* watchAddTodo() {
     yield takeEvery(ADD_TODO_REQUEST, handleAddTodo)
 }
 
-function* handleToggleTodo({ id }: ToggleTodoRequestAction) {
+export function* handleToggleTodo({ id }: ToggleTodoRequestAction) {
     const response = yield call(fromApi.toggleTodo, id)
     const normalizedData = normalize(response, schemas.todo)
     yield put(toggleTodoSuccess(normalizedData))
@@ -26,7 +26,7 @@ function* watchToggleTodo() {
     yield takeEvery(TOGGLE_TODO_REQUEST, handleToggleTodo)
 }
 
-function* handleFetchTodos({ filter }: FetchTodosRequestAction) {
+export function* handleFetchTodos({ filter }: FetchTodosRequestAction) {
     try {
         const response = yield call(fromApi.fetchTodos, filter)
         const normalizedData = normalize(response, schemas.todos)

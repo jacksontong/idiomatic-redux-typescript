@@ -58,6 +58,10 @@ export interface FetchTodosFailAction {
     readonly filter: Filter
 }
 
+export interface ReduxInitAction {
+    type: "@@INIT"
+}
+
 export type TodosAction =
     | AddTodoRequestAction
     | AddTodoSuccessAction
@@ -66,6 +70,7 @@ export type TodosAction =
     | FetchTodosRequestAction
     | FetchTodosSuccessAction
     | FetchTodosFailAction
+    | ReduxInitAction
 
 export interface ListByFilter {
     readonly ids: string[]
