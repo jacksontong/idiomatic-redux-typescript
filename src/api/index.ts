@@ -64,9 +64,10 @@ export const toggleTodo = async (id: string) => {
 export const fetchTodos = async (filter: Filter) => {
     await delay(500)
 
-    if (Math.random() * 5 < 1) {
-        throw new Error("Internal server error.")
-    }
+    // uncomment this to throw error randomly
+    // if (Math.random() * 5 < 1) {
+    //     throw new Error("Internal server error.")
+    // }
 
     switch (filter) {
         case "all":

@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { TodosState, TodosAction, Filter, Todo, Todos, ListByFilter, ListByFilters } from "../types/todos";
+import { TodosState, TodosAction, Filter } from "../types/todos";
 import byId, * as fromById from "./byId";
 import createList, * as fromCreateList from "./createList";
 import { createSelector } from "reselect";
