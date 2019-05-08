@@ -8,7 +8,7 @@ import Footer from './Footer';
 
 const Root: React.FC = () => (
     <Provider store={configureStore()}>
-        <div style={{ marginLeft: "300px" }}>
+        <div>
             <AddTodo />
             <Router>
                 <Route path="/:filter?" component={VisibleTodoList} />
